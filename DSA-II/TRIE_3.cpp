@@ -88,58 +88,23 @@ if(isJunction(cur)) d=0;
 return d;
 
 }
-
-void pp(Node *cur , string prefix){
-    if(cur==NULL) return;
-    if(cur->eow){
-        reverse(prefix.begin(),prefix.end());
-        cout<<prefix<<endl;
-    }
-    for(int i=0;i<26;i++){
-        if(cur->children[i]==NULL){
-            continue;
-        }
-        char ch= i + 'a';
-        pp(cur->children[i] , prefix+ch);
-    }
-}
-
-void prefix(string s){
-    Node *cur=root;
-    for(int i=0;i<s.size();i++){
-        int j=s[i]-'a';
-        if(cur->children[j]==NULL) return;
-        cur=cur->children[j];
-    }
-    pp(cur,s);
-}
-
-// void printBEST(Node *cur=NULL , string s=""){
-//     if(cur==NULL) cur=root;
-
-//     static bestDNA="";
-//     if(cur->eow && s.size()>bestDNA.size()){
-//         bestDNA=s;
-//     }
-//     for(int i=0;i<26;i++){
-//         if(cur->children[i]!=NULL && cur->children[i]->cout==maxcount){
-//             char ch=i + 'a';
-//             printBEST(cur->children[i] , s+ch);
-//         }
-//     }
-//     if(cur==root){
-//         cout<<bestDNA<<endl;
-//         bestDNA="";
-//     }
-// }
-
 int main() {
     root = createNode();
-    string arr[] = {"mist", "must", "mpst", "sadasd", "ttust"};
+    string arr[] = {"ada", "racecar", "bulu", "yoyo", "pup"};
     for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++) {
-          string s=arr[i];
-          reverse(s.begin(),s.end());
-          insert(s);
+        string s = arr[i];
+        insert(s);
+        string p = print();
+        deleteNode(s);
+        reverse(s.begin(), s.end());
+        insert(s);
+        string q = print();
+        deleteNode(s);
+        if (p == q) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
     }
-     prefix("ts");
+    return 0;
 }
