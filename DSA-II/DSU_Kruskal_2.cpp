@@ -3,7 +3,7 @@
 using namespace std;
 
 int par[1000],ans=0 , count=0;
-vector<int> graph[1000];
+vector<vector<int>> graph;
 
 void make_set(int x)
 {

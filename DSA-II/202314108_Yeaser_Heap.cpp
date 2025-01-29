@@ -167,7 +167,7 @@ void processMin() {
     }
 
     int minIndex = size_ /2 +1; //Comparing timeStamp for Equal minimum most
-    for (int i = size_ / 2 + 1; i <= size_; i++) {
+    for (int i = (size_ / 2 + 1)+1; i <= size_; i++) {
         if (heap[i].amount == minAmount && 
             heap[i].timestamp < heap[minIndex].timestamp) {
             minIndex = i; 

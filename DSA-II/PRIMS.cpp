@@ -12,7 +12,7 @@ int main()
     int n, e;
     cin >> n >> e;
 
-    vector<pair<int,int> >g[n];
+    vector<vector<pair<int,int>>>g;
 
     for (int i=0; i<e; i++)
     {
@@ -49,7 +49,7 @@ int main()
         for (auto it : g[tmp])
         {
             int vertex = it.first;
-            int weight = it.second;
+            int weight = it.second; //he weight of the edge connecting tmp and vertex
 
             if (weight < key[vertex] && mst[vertex] == 0)
             {

@@ -40,8 +40,6 @@ int main() {
     while (!pq.empty()) {
         int tmp = pq.top().second;
         pq.pop();
-
-
         mst[tmp] = true;
 
         for (auto it : g[tmp]) {
@@ -66,5 +64,4 @@ int main() {
 
     cout << "Total Cost of MST: " << totalCost << endl;
 
-    return 0;
 }

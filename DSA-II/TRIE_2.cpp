@@ -49,26 +49,6 @@ void printTRIE(Node *cur=root , string s=""){
 }
 
 
-void collectWords(Node *cur, string s, string &result) {
-    if(cur == NULL) return;
-    if(cur->Eow > 0){
-        result += s;
-    }
-    for(int i = 0; i < 26; i++){
-        if(cur->children[i] != NULL){
-            char ch = i + 'a';
-            collectWords(cur->children[i], s + ch, result);
-        }
-    }
-}
-
-// string printWordsAsSingleString() {
-//     string result = "";
-//     collectWords(root, "", result);
-//     //cout << "Words in Trie as a single string: " << result << endl;
-//     return result;
-// }
-
 int find(string s){
  Node *cur=root;
  for(int i=0;i<s.size();i++){
@@ -86,7 +66,7 @@ void printPrefix(Node *cur, string prefix) {
     if (cur == NULL) return;
 
     if (cur->Eow > 0) {
-        reverse(prefix.begin() , prefix.end());
+
         cout << prefix<< endl;
 
     }

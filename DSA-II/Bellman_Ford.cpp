@@ -66,7 +66,7 @@ int main()
         int u, v, w;
         cin >> u >> v >> w;
         edges.push_back({u, v, w}); // Directed graph
-        // edges.push_back({v, u, w});
+
     }
 
     vector<int> distance, parent;

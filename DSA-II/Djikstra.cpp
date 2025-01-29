@@ -58,6 +58,9 @@ int main()
         cout << i << " -> " << (distance[i] == INT_MAX ? -1 : distance[i]) << '\n';
     }
 
+
+vector<int> bigpath;
+
     cout << "\nShortest Paths from Source Node " << src << ":\n";
     for (int i = 1; i <= node; i++)
     {
@@ -75,6 +78,10 @@ int main()
                 path.push_back(curr);
                 curr = parent[curr];
             }
+            
+            if(path.size()>bigpath.size()){
+                bigpath=path;
+            }
             reverse(path.begin(), path.end());
             for (int node : path)
             {
@@ -83,6 +90,7 @@ int main()
             cout << "\n";
         }
     }
+    cout<<bigpath.size()<<endl;
 
     return 0;
 }
